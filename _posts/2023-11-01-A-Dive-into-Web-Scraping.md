@@ -54,11 +54,11 @@ I'm not good at promoting stuff but I am sure you will find what you need here. 
     1. Example of browser automation with Selenium
 11. Final thoughts and conclusions
 
-## 1. Installing Pyton
+## Installing Pyton
 
 Installing python is really simple. Just visit [the official python site](https://www.python.org/downloads/) and download the latest version and open the installer. During installation please make sure you have checked the box that **adds python to the PATH**. If you don't see the checkbox, add it manually. [Here](https://medium.com/@omoshalewa/why-you-should-add-python-to-path-and-how-58693c17c443) is an example. If this link is broken just google 'How to add python to PATH'.<br/>
 
-### 1.1 Installing VsCode
+### Installing VsCode
 
 Time to get a text editor. We will be using [VsCode](https://code.visualstudio.com) ( beginner friendly ) After installing [Vscode](https://code.visualstudio.com) from the website, open it up and you should be greeted with a fancy looking UI. Now we are going to connect Python with Vscode otherwise we our text editor (Vscode) is useless. I will be explaining how to install the extension, but if you find it difficult to follow you can also visit the official tutorial [here](https://code.visualstudio.com/docs/languages/python). Upon being greeted with the main User Interface, navigate to the extensions tab. (Picture below of the extensions tab icon)
 
@@ -76,7 +76,7 @@ Then select the **recommended one**. Great! Now we have Python connected to Vsco
 
 **Let's keep going :running_man:**
 
-## 2. Requests
+## Requests
 
 The Requests library is a pre-installed ( meaning you don't have to do anything to get it ) python library. If you don't have the library installed or just want to make sure do the following:<br/>
 
@@ -86,7 +86,7 @@ The Requests library is a pre-installed ( meaning you don't have to do anything 
 
 Requests is used to make HTTP requests to web pages / ip addresses to be able to retrieve or send data. We use this library only for basic web scraping that doesn't involve the need for advanced methods of scraping. You would also **need to know how to work with strings** to use this library as your preferred choice of scraping since Requests fetches the web page's front-end code as a whole string. ( So everything you see on the web page's screen as text ). The string formatting has to be done manually when using Requests. When we reach <b>4. Introduction to Beautiful Soup</b> you'll see how we as programmers work around this tedious problem.
 
-### 2.1 Example of Requests
+### Example of Requests
 
 We can start of by creating a new python folder called "Python" and then create a file inside of it and then open it in Vscode and call it something similar to <b>main.py</b> or <b>test.py</b>. 
 
@@ -164,11 +164,11 @@ The reason for using `begin+len('<strong>')` is to ensure we only capture the **
 
 This means the program has worked 🎉. Well done. You are learning the basics of Web Scraping.
 
-## 3. Beautiful Soup
+## Beautiful Soup
 
 What is Beautiful Soup? Its a 3rd party python library ( someone else's code ) that we can use to extract information from web page source code ( html ) quicker and with ease.
 
-### 3.1 Example of Beautiful Soup
+### Example of Beautiful Soup
 
 To start using Beautiful Soup we first have to install it on our device. We can do so by opening up comamnd prompt and installing the library using `pip` as follows:
 
@@ -237,7 +237,7 @@ Great job 👍 You are doing really well if you have come so far.
 
 **Next up: Advanced Section**
 
-## 4. What is Lazy Loading?
+## What is Lazy Loading?
 
 Lazy Loading occurs when you encounter a website that doesn't have all components loaded in yet. **Youtube** is a greate example. Videos on youtube load in as you are scrolling through them. If they wanted to load in all vidoes your device would break, becuase there are so many thus they only load in the ones needed for your view.
 
@@ -247,11 +247,11 @@ This is where tools like Selenium come in.
 
 **Let's keep the flow flowin'🌊**
 
-## 5. Selenium
+## Selenium
 
 Selenium is a webdriver tool used to scrape information from sites by automating a browser instance. Explained simply Selenium will act like a human using a browser and that gives it the ability to wait for components to load in ( overcome lazy loading ) and do a lot of other automation.
 
-### 5.1 Example of Selenium
+### Example of Selenium
 
 #### Requirements
 First we have to install the required tools for Selenium to work. For this we will need to install its library for python using `pip`. Open up the terminal and execute this `pip` command:
@@ -413,11 +413,11 @@ The Livi B. Railroad - Tiny backyard railroad around a house!
 
 If you see a bunch of **video titles** you have succeeded. Well done!
 
-## 6. Matplotlib
+## Matplotlib
 
 Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. Mostly used for visualizing data and it comes handy when scraping websites since you can visually see the data and use it to make predictions on the data forecast.
 
-### 6.1 Examples of Matplotlib
+### Examples of Matplotlib
 
 I've decided to use a different website than Youtube for this example. I want to make it easy to understand why we would want to use **Matplotlib** alongside web scraping and how it could be benificial.
 
@@ -545,18 +545,32 @@ for i in range(20):
 
 Now we only fetch the top 20 rows. Now your bar chart should show up when running the program otherwise open up a github issue. You might not be able to read the song titles since they are all overlapping, but hovering your mouse over a certain bar on the chart will display the song title on bottom right side of screen.
 
-## 7. NodeJS
+## NodeJS
 
-### 1. What is NodeJS?
+### What is NodeJS?
 
 NodeJS is a javascript runtime used for creating web server. Thanks to a huge community of developer supporting the framework it has grown exponentially over the years with tons of integrations and libraries to make it super extensible in usage.
 
-### 2. Why use NodeJS?
+### Why use NodeJS?
 
 I've been using NodeJS since I started making web server a few years ago, but it can be used in a similar fashion for a huge variety of different web related tasks and web scraping is no exception.
 
-### 3. NodeJS Installation
+### NodeJS Installation
 
 NodeJS has an installation process similar to that of Python. When visiting the web site ( https://nodejs.org ) you will be greeted with two big green buttons. **LTS** and **Current**. If you broken experimental features like me use the **LTS** version.
 
-Download and run the installer that does all the installation work for you.
+Download and run the installer that does all the installation work for you. After you are done using the installer you can check if you installed it corectly by opening command prompt and running the following command:
+
+```bash
+node -v
+```
+
+If its working you would see the version isntalled. Next check if you have `npm` installed by running this in command prompt:
+
+```bash
+npm -v
+```
+
+It should also output the version if it worked otherwise you can check installtion instructions [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
+### 
