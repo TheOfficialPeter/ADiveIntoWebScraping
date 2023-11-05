@@ -6,7 +6,9 @@ layout: post
 **Skill level: Python beginner**
 
 ### Hello 👋
-Welcome to the all new version of my old "A Dive into Web Scraping" page. In this remake I will be more precise and promise to keep things **simple**.
+
+Welcome to my Web Scraping blog post. In this remake I will be more precise and promise to keep things **simple**.
+
 
 You probably noticed a lot of Web Scraping jobs on freelancing sites and now you are surfing the web trying to figure out what the heck web scraping is all about.
 
