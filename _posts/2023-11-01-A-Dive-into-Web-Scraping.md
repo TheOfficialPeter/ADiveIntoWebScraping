@@ -9,12 +9,12 @@ layout: post
 
 Welcome to my Web Scraping blog post. In this remake I will be more precise and promise to keep things **simple**.
 
-
 You probably noticed a lot of Web Scraping jobs on freelancing sites and now you are surfing the web trying to figure out what the heck web scraping is all about.
 
 **Look no further 👀**
 
 I'm not good at promoting stuff but I am sure you will find what you need here. To make things simple I have broken it down into steps. You might hate doing steps and want to skip to the advanced stuff. Please don't 😕
+
 
 **Let's jump in 🏃‍♂️**
 
