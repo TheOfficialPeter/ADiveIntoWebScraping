@@ -112,7 +112,7 @@ results = request.get('https://books.toscrape.com')
 
 To run this python file click the **triangle play** icon 
 
-IMAGEHERE
+![image](https://github.com/TheOfficialPeter/ADiveIntoWebScraping/assets/57006688/38c23c22-1f6b-45cc-afbc-87a27159236f)
 
 In the above image we are making a `HTTP GET` request using the `requests.get(url)` function to fetch the web page data of the url which we are storing in a variable called `results`. If we were to print the html source code of the web page we would do so as follows:
 
@@ -357,7 +357,7 @@ Once the page finished loading, open up `inspect-element` tool again and look fo
 
 This is what I found 
 
-IMAGEHERE
+![image](https://github.com/TheOfficialPeter/ADiveIntoWebScraping/assets/57006688/4d4bde31-a6f1-4773-82bd-fab57e1b7d59)
 
 First we will add another class to the python file called **By**. We will use this to define what attribute we want to look for. Import this class as follows by inserting this snippet at the beginning of the file.
 
@@ -445,7 +445,7 @@ Now let's open up the web page ourselves and open up `inspect-element` to look f
 
 We only want the Song titles and the amount of streams. Let's first focus on the song titles. We can see that it used the classname `text mp`
 
-IMAGEHERE
+![image](https://github.com/TheOfficialPeter/ADiveIntoWebScraping/assets/57006688/267d6922-eea9-44a4-9def-544da6667a80)
 
 Now let's have Selenium look for all components with that classname. Since we have two classname ( seperated by space ) we have to the the CSS Selector option with the method as follows:
 
@@ -464,11 +464,11 @@ for songTitle in results:
 
 Now we have finished part 1 of the process. Now we need the amount of streams for each song. Let's see what the attributes are for these components using `inspect-element`.
 
-IMAGEHERE
+![image](https://github.com/TheOfficialPeter/ADiveIntoWebScraping/assets/57006688/986ba707-78f9-41d6-9e45-d517cf901b21)
 
 Notice how there is no attribute that is unique to this component which we can use. So this is where more advanced techniques come into play and where I teach you how to utilize different methods and approaches for getting what you want. **All the tools you need already exists, you just need to know how to use them**. Notice how the component we want is part of a list ( image below )? We can say that the component we want is **7th** in the list.
 
-IMAGEHERE
+![image](https://github.com/TheOfficialPeter/ADiveIntoWebScraping/assets/57006688/c52c8dfa-e676-43c7-a3a5-07d3fb43a313)
 
 Go to the second most streamed song in the list and you will notice it's also the **7th** component in its list.
 
@@ -476,7 +476,7 @@ This can also be considered as a unique repeating attribute for all of these tot
 
 All the components are in a list, right? So just the pick the list they are in and right click -> copy -> copy xpath
 
-IMAGEHERE
+![image](https://github.com/TheOfficialPeter/ADiveIntoWebScraping/assets/57006688/1483c663-66ed-4c2b-be40-eb715423fc6f)
 
 Now the XPath will have a `[1]` at the end indicating that its the first one, but we don't want only the first one we want all of these list components. So let's do so by remove the one at the end: 
 
