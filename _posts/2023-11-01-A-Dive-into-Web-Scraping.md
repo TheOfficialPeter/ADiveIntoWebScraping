@@ -3,7 +3,7 @@ title: "A Dive into Web Scraping"
 layout: post
 ---
 
-**Skill level: Python beginner**
+> Skill level: Python beginner
 
 ### Hello 👋
 
@@ -235,7 +235,7 @@ It's Only the Himalayas
 
 Great job 👍 You are doing really well if you have come so far.
 
-**Next up: Advanced Section**
+> Next up: Avanced Section
 
 ## What is Lazy Loading?
 
@@ -337,7 +337,7 @@ We can use this information to construct a URL to make the selenium ( aks browse
 driver.get("https://www.youtube.com/results?search_query=tiny+train+models")
 ```
 
-**Note:** + symbols represent spaces in a URL
+> "+" symbols represent spaces in a URL
 
 After reaching the web page with the results loading in we can either wait for all of the results to load in. To make Selenium wait for results you can set the following options:
 
