@@ -22,34 +22,34 @@ I'm not good at promoting stuff but I am sure you will find what you need here. 
 
 #### Basic
 
-1. Installing Python + libraries.
+1. Installing Python + libraries
     1. Installing VsCode and configuring Python
-2. Introduction to Requests.
-    1. Example of Requests.
-3. Introduction to Beautiful Soup.
-    1. Example of Beautiful Soup.
+2. Introduction to Requests
+    1. Example of Requests
+3. Introduction to Beautiful Soup
+    1. Example of Beautiful Soup
 
 #### Advanced
 
 4. What is lazy-loading and how to overcome it.
-5. Introduction to Selenium.
-    1. Example of Selenium.
+5. Introduction to Selenium
+    1. Example of Selenium
 6. Introduction to MatplotLib
     1. Displaying information using PyPlot
 
 #### Web Scraping with NodeJS
 
-7. Getting started with NodeJS.
+7. Getting started with NodeJS
       1. What is NodeJS?
       2. Why use NodeJS?
-      3. Installing NodeJS.
+      3. Installing NodeJS
       4. Installing NodeJS modules
-8. Introduction to Puppeteer.
-    1. Example of Puppeteer.
+8. Introduction to Puppeteer
+    1. Example of Puppeteer
 
 #### Browser Automation
 
-9. What is Browser Automation.
+9. What is Browser Automation
 10. Introduction to browser automation with Selenium
     1. Example of browser automation with Selenium
 11. Final thoughts and conclusions
