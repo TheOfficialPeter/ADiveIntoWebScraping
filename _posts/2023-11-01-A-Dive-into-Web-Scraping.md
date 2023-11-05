@@ -7,7 +7,7 @@ layout: post
 
 ### Hello 👋
 
-Welcome to my Web Scraping blog post. In this remake I will be more precise and promise to keep things **simple**.
+Welcome to the new version of my Web Scraping blog post. In this remake I will be more precise and promise to keep things **simple**.
 
 You probably noticed a lot of Web Scraping jobs on freelancing sites and now you are surfing the web trying to figure out what the heck web scraping is all about.
 
@@ -144,7 +144,7 @@ You can look in the inspect element tool and you will find that the `important v
 
 We will fetch this using the python program as follows:
 
-```Python
+```python
 begin = results.text.find('<strong>', 0)
 end = results.text.find('</strong>', begin)
 ```
@@ -321,7 +321,7 @@ There are several parts that make up a URL:
 
 Here is an example of a complete URL:
 
-```https://www.example.com/path/to/resource?key1=value1&key2=value2#fragment```
+`https://www.example.com/path/to/resource?key1=value1&key2=value2#fragment`
 
 **In this example**:
 
@@ -429,7 +429,7 @@ pip install matplotlib
 
 Wait for it to finish then go to your python file and add the following snippet at the beginning:
 
-```Python
+```python
 import matplotlib.pyplot as plt
 ```
 
@@ -437,7 +437,7 @@ Now we have a ton of functions for showing us statistical graphs and such, but f
 
 First let's modify out Selenium driver `get()` to change the web page since we are not using Youtube anymore. Change it to this:
 
-```Python
+```python
 driver.get("https://kworb.net/spotify/country/global_daily.html")
 ```
 
@@ -449,13 +449,13 @@ IMAGEHERE
 
 Now let's have Selenium look for all components with that classname. Since we have two classname ( seperated by space ) we have to the the CSS Selector option with the method as follows:
 
-```Python
+```python
 results = driver.find_elements(By.CSS_SELECTOR, ".text.mp")
 ```
 
 Now let's loop through all the results and save them in an array called `songTitles`.
 
-```Python
+```python
 songTitles = []
 
 for songTitle in results:
@@ -486,40 +486,40 @@ This is perfect.
 
 Selenium has a method for search using XPath too. So let's use that to get all list components:
 
-```Python
+```python
 results = driver.find_elements(By.XPATH, "//*[@id='spotifydaily']/tbody/tr")
 ```
 
 We are allowed to overwrite the results variable since we aren't using it anymore. Now let's loop through our results:
 
-```Python
+```python
 for list in results:
     print(list)
 ```
 
 But now we have a problem. We don't want the list, we want the streams inside of these list components. We can get them by looking for the **7th** component within them. For this we will use `CSS Selectors` again, but use `n-th child` selector to get the **7th** component within each list.
 
-```Python
+```python
 for list in results:
     print(list.find_element(By.CSS_SELECTOR, ":nth-child(7)").text)
 ```
 
 Now we have all the stream values, let's save them in an array. Add this snippet before the loop:
 
-```Python
+```python
 songStreams = []
 ```
 
 And then change the loop we have as follows:
 
-```Python
+```python
 for list in results:
     songStreams.append(list.find_element(By.CSS_SELECTOR, ":nth-child(7)").text)
 ```
 
 Now we have the song titls and the song streams. Now we will plot our results on a Bar chart. Song Titles being the X variable and Stream being the Y.
 
-```Python
+```python
 plt.bar(songTitles, songStreams)
 plt.xlabel('Song Titles')
 plt.ylabel('Total Streams')
@@ -531,16 +531,32 @@ If you see a bar chart that means it worked. If you get an error saying `Mismatc
 
 Song title loop modified:
 
-```Python
+```python
 for i in range(20):
     songTitles.append(results[i].text)
 ```
 
 Song Streams loop modified:
 
-```Python
+```python
 for i in range(20):
     songStreams.append(results[i].find_element(By.CSS_SELECTOR, ":nth-child(7)").text)
 ```
 
-Now we only fetch the top 20 rows. Now your bar chart should show up when running the program otherwise open up an issue. You might not be able to read the song titles since they are all overlapping, but hovering your mouse over a certain bar on the chart will display the song title on bottom right side of screen.
+Now we only fetch the top 20 rows. Now your bar chart should show up when running the program otherwise open up a github issue. You might not be able to read the song titles since they are all overlapping, but hovering your mouse over a certain bar on the chart will display the song title on bottom right side of screen.
+
+## 7. NodeJS
+
+### 1. What is NodeJS?
+
+NodeJS is a javascript runtime used for creating web server. Thanks to a huge community of developer supporting the framework it has grown exponentially over the years with tons of integrations and libraries to make it super extensible in usage.
+
+### 2. Why use NodeJS?
+
+I've been using NodeJS since I started making web server a few years ago, but it can be used in a similar fashion for a huge variety of different web related tasks and web scraping is no exception.
+
+### 3. NodeJS Installation
+
+NodeJS has an installation process similar to that of Python. When visiting the web site ( https://nodejs.org ) you will be greeted with two big green buttons. **LTS** and **Current**. If you broken experimental features like me use the **LTS** version.
+
+Download and run the installer that does all the installation work for you.
