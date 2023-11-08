@@ -573,4 +573,65 @@ npm -v
 
 It should also output the version if it worked otherwise you can check installtion instructions [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-### 
+### Installing NodeJS Modules
+
+NodeJS modules similar to Python libraries add extensibility to your application and allows more functionality while providing a smoother coding experience.
+
+We will be using `npm` to install nodejs moduels/packages. Installation a module is also done in the terminal / command prompt with the following format:
+
+```bash
+npm install MODULENAME
+```
+
+## Puppeteer
+
+You could easily think of puppeteer being a nodejs alternative for selenium. I would consider it to be personal preference since they are almost the same. It's good to have a module like Puppeteer which was specifically made for using in NodeJS, if you are working in NodeJS.
+
+#### Installation
+
+You can install puppeteer using `npm`
+
+```bash
+npm i puppeteer
+```
+
+This will install Puppeteer in your current project directory for usage. It also automatically install the Chrome Driver so you can start using the module right away.
+
+### Example of Puppeteer
+
+For this example we will be using a more realistic example like an online shop when you might want to grab all the deals. We'll be using **Amazon** and their "Today's deals" page and scrape all the products and their prices.
+
+First we start off by create a new file named: `scrape.js` and open it. Now we will import Puppeteer into the file:
+
+```js
+// Import puppeteer
+import puppeteer from 'puppeteer';
+```
+
+Then we redirect Puppeteer to go to the Amazon Today's deals page
+
+```js
+const browser = await puppeteer.launch();
+const page = await browser.newPage();
+await page.goto('https://www.amazon.com/gp/goldbox');
+```
+
+Then we open up `inspect-element` again and look for the attribute of the repearing elements ( the products and their info ). We notice that all of the components we want like the **price** and **item name** is placed in a `a-link-normal _discount-asin-shoveler_style_link__1FS9h` class. So let's fetch all the web components/elements with this class. We also know that the price's class is `_discount-asin-shoveler_style_priceContainer__3lkqa` and the product name's class is `a-color-base _discount-asin-shoveler_style_title__3k8Rn`. This might change and yours might be different since different versions of amazon website.
+
+```js
+const deals = await page.evaluate(() => {
+    const dealElements = document.querySelectorAll('.a-link-normal _discount-asin-shoveler_style_link__1FS9h');
+    let deals = [];
+
+    for (const dealElement of dealElements) {
+      const title = dealElement.querySelector('');
+      const price = dealElement.querySelector('._discount-asin-shoveler_style_priceContainer__3lkqa');
+
+      deals.push({ title, image, price });
+    }
+
+    return deals;
+})
+```
+
+In the above example we place the whole snippet in a evaluate() which will return a promise that will be resolved when it has finished searching for all the deals. It first look for the product card and then extract info like price and name.
