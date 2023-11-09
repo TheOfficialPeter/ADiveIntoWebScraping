@@ -47,13 +47,6 @@ I'm not good at promoting stuff but I am sure you will find what you need here. 
 8. Introduction to Puppeteer
     1. Example of Puppeteer
 
-#### Browser Automation
-
-9. What is Browser Automation
-10. Introduction to browser automation with Selenium
-    1. Example of browser automation with Selenium
-11. Final thoughts and conclusions
-
 ## Installing Pyton
 
 Installing python is really simple. Just visit [the official python site](https://www.python.org/downloads/) and download the latest version and open the installer. During installation please make sure you have checked the box that **adds python to the PATH**. If you don't see the checkbox, add it manually. [Here](https://medium.com/@omoshalewa/why-you-should-add-python-to-path-and-how-58693c17c443) is an example. If this link is broken just google 'How to add python to PATH'.<br/>
@@ -599,39 +592,78 @@ This will install Puppeteer in your current project directory for usage. It also
 
 ### Example of Puppeteer
 
-For this example we will be using a more realistic example like an online shop when you might want to grab all the deals. We'll be using **Amazon** and their "Today's deals" page and scrape all the products and their prices.
+For this example I wanted to try a real life example like scraping deals off of **Amazon**, but then I noticed how difficult the process is to document it for the blog. It's easier to try it yourself. Let me know if I need to add documentation for such an example. For this example we will use a practise scraping site again.
 
-First we start off by create a new file named: `scrape.js` and open it. Now we will import Puppeteer into the file:
+So we will be using [this quotes site](http://quotes.toscrape.com). First we create a new NodeJS file called `puppeteer_test.js` and then we import the puppeteer module in the file.
 
 ```js
-// Import puppeteer
 import puppeteer from 'puppeteer';
 ```
 
-Then we redirect Puppeteer to go to the Amazon Today's deals page
+Now we can launch a new Chrome browser instance that redirects to the sites so we can grab all the quotes from the websites.
 
 ```js
-const browser = await puppeteer.launch();
-const page = await browser.newPage();
-await page.goto('https://www.amazon.com/gp/goldbox');
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto('http://quotes.toscrape.com');
+    // we will add the scraping portions here
+    await browser.close();
+})();
 ```
 
-Then we open up `inspect-element` again and look for the attribute of the repearing elements ( the products and their info ). We notice that all of the components we want like the **price** and **item name** is placed in a `a-link-normal _discount-asin-shoveler_style_link__1FS9h` class. So let's fetch all the web components/elements with this class. We also know that the price's class is `_discount-asin-shoveler_style_priceContainer__3lkqa` and the product name's class is `a-color-base _discount-asin-shoveler_style_title__3k8Rn`. This might change and yours might be different since different versions of amazon website.
+Now going through the page ourselves and using `inspect-element` we can see that the quote block text elements have a certain class in the source code. We notice they have a class named `quote`. So this is the repeating value and we will fetch it using puppeteer as follows: 
 
 ```js
-const deals = await page.evaluate(() => {
-    const dealElements = document.querySelectorAll('.a-link-normal _discount-asin-shoveler_style_link__1FS9h');
-    let deals = [];
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto('http://quotes.toscrape.com');
+    
+    // find all elements with the class 'quote'
+    const quoteElements = await page.$$('.quote');
 
-    for (const dealElement of dealElements) {
-      const title = dealElement.querySelector('');
-      const price = dealElement.querySelector('._discount-asin-shoveler_style_priceContainer__3lkqa');
-
-      deals.push({ title, image, price });
+    for (const quoteElement of quoteElements) {
+        const textProperty = await quoteElement.getProperty('innerText');
+        const text = await textProperty.jsonValue();
+        console.log(text);
     }
 
-    return deals;
-})
+    await browser.close();
+})();
 ```
 
-In the above example we place the whole snippet in a evaluate() which will return a promise that will be resolved when it has finished searching for all the deals. It first look for the product card and then extract info like price and name.
+And your result will output in the terminal/console similar to the following
+
+```txt
+“The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.”
+by Albert Einstein (about)
+Tags: change deep-thoughts thinking world
+“It is our choices, Harry, that show what we truly are, far more than our abilities.”
+by J.K. Rowling (about)
+Tags: abilities choices
+“There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.”
+by Albert Einstein (about)
+Tags: inspirational life live miracle miracles
+“The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.”
+by Jane Austen (about)
+Tags: aliteracy books classic humor
+“Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.”
+by Marilyn Monroe (about)
+Tags: be-yourself inspirational
+“Try not to become a man of success. Rather become a man of value.”
+by Albert Einstein (about)
+Tags: adulthood success value
+“It is better to be hated for what you are than to be loved for what you are not.”
+by André Gide (about)
+Tags: life love
+“I have not failed. I've just found 10,000 ways that won't work.”
+by Thomas A. Edison (about)
+Tags: edison failure inspirational paraphrased
+“A woman is like a tea bag; you never know how strong it is until it's in hot water.”
+by Eleanor Roosevelt (about)
+Tags: misattributed-eleanor-roosevelt
+“A day without sunshine is like, you know, night.”
+by Steve Martin (about)
+Tags: humor obvious simile
+```
