@@ -1,14 +1,14 @@
 ---
-title: "The Deep Learning Cheatsheet"
+title: "the deep learning cheatsheet"
 layout: post
 ---
 
-> Skill level: coding enthusiast
+> skill level: coding enthusiast
 
-### Hello 👋
+### hello 👋
 
-Welcome to my blog about Machine Learning and Deep Learning 👀
+welcome to my blog about machine learning and deep learning 👀
 
-In this blog post we will uncover the mystery of Deep Learning together. 📖
+in this blog post we will uncover the mystery of deep learning together. 📖
 
-Join me and let's find out what we are missing out on.
+join me and let's find out what we are missing out on.
