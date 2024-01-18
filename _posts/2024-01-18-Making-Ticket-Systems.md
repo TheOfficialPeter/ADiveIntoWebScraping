@@ -9,6 +9,8 @@ layout: post
 
 I made this small blog post to cover how I initially created a ticket system for a comission and how I had to switch over to another program.
 
+
+
 ### Part 1: Introduction
 
 Initially I made the design in Figma for Desktop, Mobile devices thereafter I utilized CapacitorJS, VueJS, TailwindCSS and Firebase to create the applications. Everything worked until I had to implement Firebase authentication for the mobile compiled version ( deadline was closing in ) and I had been stuck on a problem for nearly a week so I had to switch to another method of making these apps.
